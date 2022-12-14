@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<!-- Appenders -->
+    <appender name="file" class="ch.qos.logback.core.FileAppender">
+        <file>./LOGS/logs.log</file> 
+
+        <encoder>
+            <pattern>[%p] - [%c{1.}] - [%t]: %m%n</pattern>
+        </encoder>s
+        
+        <append>false</append>
+        
+    </appender>
+     
+    <appender name="consola" class="ch.qos.logback.core.ConsoleAppender">
+    	<encoder>
+    	<pattern>[%-5level] - [%thread] - %logger{0}: %msg%n</pattern>
+    	</encoder>
+    </appender>
+    
+    <!-- Logs -->   
+    <!-- Los logs se encuentran al nivel de "warn" para evitar la sobrecarga de logs por parte de Spring y sea más fácil
+    seguir la traza del proyecto -->   	
+    <root level="warn">
+        <appender-ref ref="consola"/>      
+    </root>
+
+</configuration>
